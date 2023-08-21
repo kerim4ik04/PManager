@@ -16,7 +16,7 @@
         android:layout_height="34dp"
         android:id="@+id/indicator_on_boarding"
         app:ci_drawable="@drawable/bg_indicator"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
