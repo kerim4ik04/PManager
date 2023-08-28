@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -56,4 +57,11 @@ dependencies {
     //circleIndicator
     implementation 'me.relex:circleindicator:2.1.6'
 
+    //Room
+    def room_version = "2.5.2"
+    implementation"androidx.room:room-runtime:$room_version"
+    annotationProcessor"androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //krop
+        implementation"com.vanniktech:android-image-cropper:4.5.0"
 }
