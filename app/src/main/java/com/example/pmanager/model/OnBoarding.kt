@@ -5,7 +5,7 @@ import android.icu.text.CaseMap.Title
 import android.media.Image
 
 data class OnBoarding(
-    val image: String? = null,
+    val image: Int? = null,
     val title: String? = null,
     val description: String? = null
 )

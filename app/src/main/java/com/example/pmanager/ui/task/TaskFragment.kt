@@ -12,36 +12,48 @@ import com.example.pmanager.App
 import com.example.pmanager.R
 import com.example.pmanager.databinding.FragmentTaskBinding
 import com.example.pmanager.model.Task
+import com.example.pmanager.ui.home.HomeFragment
 
 class TaskFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskBinding
+    private var task: Task? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding=FragmentTaskBinding.inflate(inflater, container, false)
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentTaskBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSave.setOnClickListener{
-            save()
+        task = arguments?.getSerializable(HomeFragment.TASK_FOR_EDIT) as Task?
+        task?.let {
+            binding.btnSave.text = getString(R.string.update)
+            binding.etTitle.setText(it.title)
+            binding.etDesc.setText(it.description)
+        }
+        binding.btnSave.setOnClickListener {
+            if (task != null) {
+                update()
+            } else save()
         }
     }
-    private fun save(){
-        val data = Task(
+
+    private fun update() {
+        val data = Task(id = task?.id,
             title = binding.etTitle.text.toString(),
-            description = binding.etDesc.text.toString()
-        )
-        App.db.taskDao().insert(data)
+            description = binding.etDesc.text.toString())
+        App.db.taskDao().update(data)
         findNavController().navigateUp()
     }
 
-    companion object{
-        const val REQUEST_RESULT="request.result"
-        const val TASK_KEY= "task.key"
+    private fun save() {
+        val data = Task(title = binding.etTitle.text.toString(),
+            description = binding.etDesc.text.toString())
+        App.db.taskDao().insert(data)
+        findNavController().navigateUp()
     }
 }

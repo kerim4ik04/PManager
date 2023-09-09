@@ -2,6 +2,7 @@ package com.example.pmanager.data.local
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
+import android.net.Uri
 
 class Pref(context: Context) {
 
@@ -23,12 +24,16 @@ class Pref(context: Context) {
         return pref.getString(NAME_KEY, "")
     }
 
-    fun setImage(image: String) {
-        pref.edit().putString(IMAGE_KEY, image).apply()
+    fun setAvatar(url: Uri?) {
+        pref.edit().putString(AVATAR_KEY, url.toString()).apply()
+    }
+
+    fun getAvatar(): String? {
+        return pref.getString(AVATAR_KEY, "")
     }
 
     companion object {
-        const val IMAGE_KEY = "image"
+        const val AVATAR_KEY = "avatar.key"
         const val PREF_NAME = "TaskManager"
         const val SHOWED_KEY = "showed.key"
         const val NAME_KEY = "name.key"

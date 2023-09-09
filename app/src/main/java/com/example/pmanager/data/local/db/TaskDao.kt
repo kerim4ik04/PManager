@@ -9,7 +9,7 @@ interface TaskDao {
     @Insert
     fun insert(task: Task)
 
-    @Query("SELECT * FROM task")
+    @Query("SELECT * FROM task ORDER BY id DESC")
     fun getAll(): List<Task>
 
     @Delete

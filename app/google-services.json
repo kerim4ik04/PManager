@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "759839298025",
+    "project_id": "p-manager-6094a",
+    "storage_bucket": "p-manager-6094a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759839298025:android:65a64470e2cfafccbebb78",
+        "android_client_info": {
+          "package_name": "com.example.pmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759839298025-0274csu0hbc4q618aati05ac3m18hrh2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFpnCZhP9Uukui3RSqbP-Op_GjQZdjgkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759839298025-0274csu0hbc4q618aati05ac3m18hrh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

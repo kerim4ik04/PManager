@@ -37,4 +37,14 @@
         android:name="com.example.pmanager.ui.onboarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.pmanager.ui.auth.phone.PhoneFragment"
+        android:label="fragment_phone"
+        tools:layout="@layout/fragment_phone" />
+    <fragment
+        android:id="@+id/acceptFragment2"
+        android:name="com.example.pmanager.ui.auth.accept.AcceptFragment"
+        android:label="fragment_accept"
+        tools:layout="@layout/fragment_accept" />
 </navigation>

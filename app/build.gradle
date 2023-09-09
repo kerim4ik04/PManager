@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.pmanager"
-        minSdk 33
+        minSdk 30
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -47,6 +48,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -54,14 +56,16 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+
     //circleIndicator
     implementation 'me.relex:circleindicator:2.1.6'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:4.0.0'
 
     //Room
     def room_version = "2.5.2"
     implementation"androidx.room:room-runtime:$room_version"
     annotationProcessor"androidx.room:room-compiler:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    //krop
-        implementation"com.vanniktech:android-image-cropper:4.5.0"
-}
+    }

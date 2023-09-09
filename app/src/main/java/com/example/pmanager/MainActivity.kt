@@ -12,6 +12,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pmanager.data.local.Pref
 import com.example.pmanager.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         if (!pref.isShowed())
         navController.navigate(R.id.onBoardingFragment)
+
+        if (FirebaseAuth.getInstance().currentUser?.uid.isNullOrEmpty()){
+            navController.navigate(R.id.phoneFragment)
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -44,9 +50,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.taskFragment
             )
         )
+        val fragmentsWithoutBottomNav= setOf(
+            R.id.acceptFragment2,
+            R.id.phoneFragment,
+            R.id.onBoardingFragment,
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id==R.id.onBoardingFragment){
+            if (fragmentsWithoutBottomNav.contains(destination.id)){
                 navView.isVisible = false
                 supportActionBar?.hide()
             }else{
